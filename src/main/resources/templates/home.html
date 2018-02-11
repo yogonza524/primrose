@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Publicame 1.0.0 (Beta Always)</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.css" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+        <div id="menuTopHome" class="ui sticky secondary pointing menu">
+            <a class="active item">
+              Publicaciones
+            </a>
+            <a class="item">
+              <div class="ui icon input">
+                <input type="text" placeholder="Buscar publicaciones..." />
+                <i class="search icon"></i>
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="ui item">
+                Publicar
+              </a>
+              <a class="ui item">
+                Publicar en Facebook
+              </a>
+              <a class="ui item">
+                Registrarme
+              </a>
+              <a class="ui item">
+                Acceder
+              </a>
+            </div>
+        </div>
+            <div class="ui grid" id="contentHome">
+                <div class="four wide column"></div>
+                <div class="eight wide column">
+                    <div id="entries">
+                        <div class="entry" v-for="entry in entries">
+                            <div class="ui top attached menu" v-if="hasTitle(entry)">
+                                <a class="item">
+                                  {{ entry.title }}
+                                </a>
+                            </div>
+                            <div class="ui attached segment">
+                                <div v-if="hasDescription(entry)">
+                                    {{ entry.desc }}
+                                </div>
+                                <span class="item" v-for="c in entry.contacts">
+                                  {{ c }}
+                                </span>
+                                <img v-if="hasPicture(entry)" v-bind:src="entry.pictureUrl" />
+                            </div>
+                            <div class="ui bottom attached menu" style="margin-bottom: 10px;">
+                                <a class="item" style="color:yellow" title="Patrocinado" v-if="entry.sponsored">
+                                    <i class="star icon"></i> 
+                                </a>
+                                <a class="item" title="Vistos">
+                                    <i style="color: black" class="smile icon"></i> {{entry.social.seen}}
+                                </a>
+                                <a class="item" title="Les gusta">
+                                    <i style="color:red;" class="heart icon"></i> {{entry.social.like}}
+                                </a>
+                                <a class="item" style="color: grey" title="Publicado">
+                                    {{ getCreated(entry) }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column ui vertical menu">
+                        <a class="active teal item">
+                          Esta semana
+                          <div class="ui teal left pointing label">129</div>
+                        </a>
+                        <a class="item">
+                          Alquileres
+                          <div class="ui label">51</div>
+                        </a>
+                        <a class="item">
+                          Terrenos
+                          <div class="ui label">87</div>
+                        </a>
+                        <a class="item">
+                          Ofrecidos
+                          <div class="ui label">180</div>
+                        </a>
+                        <a class="item">
+                          Enseñanza
+                          <div class="ui label">8</div>
+                        </a>
+                        <a class="item">
+                          Telefonía Movil
+                          <div class="ui label">35</div>
+                        </a>
+                        <a class="item">
+                          Construcción
+                          <div class="ui label">245</div>
+                        </a>
+                        <a class="item">
+                          Autos y Motos
+                          <div class="ui label">189</div>
+                        </a>
+                        <a class="item">
+                          Artículos del Hogar
+                          <div class="ui label">324</div>
+                        </a>
+                        <a class="item">
+                          Más
+                          <div class="ui label">+1000</div>
+                        </a>
+                </div>
+            </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/entries-mock.js"></script>
+    </body>
+</html>
