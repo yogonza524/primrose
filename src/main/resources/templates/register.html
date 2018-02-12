@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Publicame 1.0.0 (Beta Always)</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.css" />
+    </head>
+    <body>
+        
+        <div id="menuTopHome" class="ui sticky secondary pointing menu">
+            <a class="active item" href="/home">
+              Publicaciones
+            </a>
+            <a class="item">
+              <div class="ui icon input">
+                <input type="text" placeholder="Buscar publicaciones..." />
+                <i class="search icon"></i>
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="ui item" href="/publish">
+                Publicar
+              </a>
+              <a class="ui item">
+                Publicar en Facebook
+              </a>
+              <a class="ui item">
+                Acceder
+              </a>
+            </div>
+        </div>
+        <div class="ui grid" id="contentHome">
+            <div class="four wide column"></div>
+            <div class="eight wide column">
+                <div class="ui three top attached steps">
+                    <div class="active step">
+                      <i class="user outline icon"></i>
+                      <div class="content">
+                        <div class="title">Mis datos</div>
+                        <div class="description">Cuentanos sobre ti</div>
+                      </div>
+                    </div>
+                    <div class="disabled step">
+                      <i class="info circle icon"></i>
+                      <div class="content">
+                        <div class="title">Otros datos</div>
+                        <div class="description">Cuentanos un poco mas</div>
+                      </div>
+                    </div>
+                    <div class="disabled step">
+                      <i class="check circle icon"></i>
+                      <div class="content">
+                        <div class="title">Confirmar</div>
+                        <div class="description">Casi listo</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui attached segment">
+                    <p>Genial</p>
+                  </div>
+            </div>
+            <div class="four wide column"></div>
+        </div>
+                
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+        <script src="js/register.js"></script>
+        <!--<script src="js/entries-mock.js"></script>-->
+    </body>
+</html>
