@@ -42,39 +42,113 @@ and open the template in the editor.
                     <div class="active step">
                       <i class="user outline icon"></i>
                       <div class="content">
-                        <div class="title">Mis datos</div>
-                        <div class="description">Cuentanos sobre ti</div>
-                      </div>
-                    </div>
-                    <div class="disabled step">
-                      <i class="info circle icon"></i>
-                      <div class="content">
-                        <div class="title">Otros datos</div>
-                        <div class="description">Cuentanos un poco mas</div>
-                      </div>
-                    </div>
-                    <div class="disabled step">
-                      <i class="check circle icon"></i>
-                      <div class="content">
-                        <div class="title">Confirmar</div>
-                        <div class="description">Casi listo</div>
+                        <div class="title">Registración</div>
+                        <div class="description">Información básica</div>
                       </div>
                     </div>
                   </div>
                   <div class="ui attached segment">
-                    <p>Genial</p>
+ <form id="form-register" class="ui form">
+  <div class="field">
+    <label>Nombre</label>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" v-model="user.firstName" name="shipping[first-name]" placeholder="Mi nombre" />
+      </div>
+      <div class="field">
+        <input type="text" v-model="user.lastName" name="shipping[last-name]" placeholder="Apellido" />
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Domicilio</label>
+    <div class="fields">
+      <div class="eight wide field">
+        <input type="text" name="shipping[address]" placeholder="Direccion" />
+      </div>
+      <div class="four wide field">
+        <input type="text" name="shipping[address-2]" placeholder="Calle" />
+      </div>
+      <div class="four wide field">
+        <input type="text" name="shipping[address-2]" placeholder="Numero" />
+      </div>
+    </div>
+  </div>
+  <div class="two fields">
+    <div v-if="selectCountry !== true" class="four wide field">
+      <label>Provincia</label>
+      <select v-model="provSelected" v-on:change="onChange(provSelected)">
+          <option disabled="true" selected="true" value="">Provincias</option>
+          <option v-for="prov in argentina" v-bind:value="prov">{{prov.provincia}}</option>
+      </select>
+    </div>
+    <div v-if="selectCountry !== true" class="four wide field">
+      <label>Localidad</label>
+      <select>
+          <option>Localidades</option>
+          <option v-for="loc in localidades">{{loc}}</option>
+      </select>
+    </div>
+    <div v-if="selectCountry" class="field">
+      <label>País</label>
+      <select>
+            <option selected="true" >Paises</option>
+            <option v-for="country in c" value="">{{country.name}}</option>
+        </select>
+    </div>
+    <div class="field">
+      <label>Cel</label>
+      <input name="cel" v-model="user.cel" placeholder="Cel Movil" />
+    </div>
+  </div>
+  <h4 class="ui dividing header">Datos de usuario</h4>
+  <div class="field">
+    <label>Email</label>
+    <div class="fields">
+      <div class="eight wide field">
+          <input id="user-email" type="text" v-model="user.email" name="email" placeholder="Email" />
+      </div>
+      <div class="eight wide field">
+        <input type="password" v-model="user.password" name="shipping[address-2]" placeholder="Contraseña" />
+      </div>
+    </div>
+  </div>
+  <div v-if="validationErrors.length > 0" class="ui negative message">
+    <i class="close icon"></i>
+    <div class="header">
+        Se encontraron los siguientes errores:
+    </div>
+    <ul class="list">
+        <li v-for="e in validationErrors">{{e}}</li>
+    </ul>
+  </div>
+  <a href="#" class="ui button" v-on:click="validateForm()">Listo</a>
+</form>
                   </div>
             </div>
             <div class="four wide column"></div>
         </div>
                 
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="js/gfb_config.js"></script>
         
+        <!-- alertifyjs -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+
+        <!-- CSS alertifyjs -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.min.css"/>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
         <script src="js/register.js"></script>
-        <!--<script src="js/entries-mock.js"></script>-->
     </body>
 </html>
