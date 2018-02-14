@@ -70,7 +70,8 @@ var Registration = new Vue({
             },
             cel : {
                 numericality : {
-                    onlyInteger : true
+                    onlyInteger : true,
+                    message : 'no es un numero valido'
                 },
                 presence : {
                     message : 'requerido'
@@ -91,8 +92,57 @@ var Registration = new Vue({
 
         if (v == undefined) {
             //No errors, register please
+            this.$http.post('http://localhost:8080/users/register',{
+                    name : this.user.firstName,
+                    email : this.user.email
+            }).then(function(response){
+                    //Método que se dispara cuando vuelve la respuesta del servidor.
+                    let status = response.body.status;
+                    if (status == 200) {
+                        //Email enviado
+                        alertify.alert()
+                            .setting({
+                              'label':'Genial',
+                              'title' : 'Email enviado correctamente',
+                              'onok': function(){ 
+                                  alertify.success('Listo');
+                              }
+                            })
+                          .setContent(`
+                              <h4>Verifica tu casilla</h4>
+                              <p>
+                                  Hemos enviado un email de bienvenida a tu correo.
+                              </p><br />
+                              <p>
+                                  Esperamos disfrutes de tu cuenta en nuestra plataforma.
+                                  Nuevamente: Bienvenido!
+                              </p>
+                          `)
+                          .show();
+
+                          //window.location.replace("http://localhost:8080/home");
+                    }
+                    if (status == 400) {
+                        //Error en el envio
+                        alertify.alert()
+                            .setting({
+                              'label':'Bueno',
+                              'title' : 'Error en el envio de email',
+                              'onok': function(){ 
+                                  alertify.success('Esperare');
+                              }
+                            })
+                          .setContent(`
+                              <h4>Ocurrio un error</h4>
+                          `)
+                          .show();
+                    }
+            }, function(){
+                    //Método que se dispara si hubo algún error.
+            });
+
             firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password).then(function(user) {
-                window.location.replace("http://localhost:8080/home");
+                
             }, function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -122,7 +172,7 @@ var Registration = new Vue({
                         <p>
                             Posiblemente estes intentando registrar un usuario
                             ya existente, si olvidaste tu password puedes solicitar
-                            que <a href="#">se restablezca el password de acceso</>
+                            que <a href="#">se restablezca el password de acceso</a>
                         </p>
                     `)
                     .show();

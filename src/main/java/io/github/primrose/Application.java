@@ -8,6 +8,7 @@ package io.github.primrose;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.primrose.gmail.GmailService;
 import com.primrose.model.ArgentinaLocation;
 import com.primrose.model.Country;
 import java.io.File;
@@ -86,5 +87,10 @@ public class Application {
         props.put("mail.debug", "true");
 
         return mailSender;
+    }
+    
+    @Bean
+    GmailService gmail() {
+        return new GmailService();
     }
 }

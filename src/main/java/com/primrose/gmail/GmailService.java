@@ -22,7 +22,7 @@ public class GmailService {
     @Autowired
     public JavaMailSender mailSender;
     
-    public void sendSimpleMessage(
+    public void send(
       String to, String subject, String text) throws MessagingException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");

@@ -20,6 +20,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -53,6 +54,7 @@ public class GmailTest {
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
+     @Ignore
      public void sendMailTest() throws FileNotFoundException, IOException {
         String template = IOUtils.toString(GmailTest.class.getResourceAsStream("/static/email/s.html"), "UTF-8");
         try {
