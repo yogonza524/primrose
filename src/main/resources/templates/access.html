@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Publicame 1.0.0 (Beta Always)</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.css" />
+    </head>
+    <body>
+        
+        <div id="menuTopHome" class="ui sticky secondary pointing menu">
+            <a class="active item" href="/home">
+              Publicaciones
+            </a>
+            <a class="item">
+              <div class="ui icon input">
+                <input type="text" placeholder="Buscar publicaciones..." />
+                <i class="search icon"></i>
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="ui item" href="/publish">
+                Publicar
+              </a>
+              <a class="ui item">
+                Publicar en Facebook
+              </a>
+              <a class="ui item" href="/register">
+                Registrarme
+              </a>
+            </div>
+        </div>
+        <div class="ui grid" id="contentHome">
+            <div class="four wide column"></div>
+            <div class="eight wide column">
+                <div id="form-login" class="ui segments">
+                    <div class="ui segment">
+                      <p>Accede</p>
+                    </div>
+                    <div class="ui secondary segment">
+                      <form class="ui form">
+                        <div class="two fields">
+                            <div class="field">
+                              <label>Correo electrónico</label>
+                              <input type="text" v-model="email" name="shipping[first-name]" placeholder="Correo electrónico" />
+                            </div>
+                            <div class="field">
+                              <label>Contraseña</label>
+                              <input type="password" v-model="password" name="shipping[last-name]" placeholder="Password" />
+                            </div>
+                        </div>
+                          <div class="ui grid">
+                              <div class="eight wide column">
+                                  <button v-on:click="login" class="ui button green" type="button">Listo</button>
+                              </div>
+                              <div class="eight wide column">
+                                    <a href="/recover_pass">¿Olvidaste tu contraseña?</a><br />
+                                    <a href="/recover_email">¿No recordas tu email?</a><br />
+                              </div>    
+                          </div>
+                      </form>
+                      <div v-if="validateErrors.length > 0" class="ui negative message">
+                        <div class="header">
+                            Se encontraron los siguientes errores:
+                        </div>
+                        <ul class="list">
+                            <li v-for="e in validateErrors">{{e}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column"></div>
+        </div>
+                
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="js/gfb_config.js"></script>
+        
+        <!-- alertifyjs -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+
+        <!-- CSS alertifyjs -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.min.css"/>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+        <script src="js/access.js"></script>
+    </body>
+</html>

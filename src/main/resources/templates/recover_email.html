@@ -24,13 +24,16 @@ and open the template in the editor.
               </div>
             </a>
             <div class="right menu">
-              <a class="ui item">
+              <a class="ui item" href="/publish">
                 Publicar
               </a>
               <a class="ui item">
                 Publicar en Facebook
               </a>
-                <a class="ui item" href="/access">
+              <a class="ui item" href="/register">
+                Registrarme
+              </a>
+              <a class="ui item" href="/access">
                 Acceder
               </a>
             </div>
@@ -38,18 +41,31 @@ and open the template in the editor.
         <div class="ui grid" id="contentHome">
             <div class="four wide column"></div>
             <div class="eight wide column">
-                <h1>Aca iria los datos para publicar</h1>
+                
             </div>
             <div class="four wide column"></div>
         </div>
                 
+        <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="js/gfb_config.js"></script>
         
+        <!-- alertifyjs -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+
+        <!-- CSS alertifyjs -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.min.css"/>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
-        <script src="js/register.js"></script>
-        <!--<script src="js/entries-mock.js"></script>-->
+        <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+        <script src="js/access.js"></script>
     </body>
 </html>

@@ -119,8 +119,8 @@ var Registration = new Vue({
                               </p>
                           `)
                           .show();
-
-                          //window.location.replace("http://localhost:8080/home");
+                          
+                          
                     }
                     if (status == 400) {
                         //Error en el envio

@@ -426,8 +426,8 @@
     },
     {
         "iso_31662": "AR-E",
-        "provincia": "Entre Ríos",
-        "capital": "Paraná",
+        "provincia": "Entre Rios",
+        "capital": "Parana",
         "localidad": [
             "Alarcon",
             "Alcaraz",
@@ -1191,8 +1191,8 @@
     },
     {
         "iso_31662": "AR-Q",
-        "provincia": "Neuquén",
-        "capital": "Neuquén",
+        "provincia": "Neuquen",
+        "capital": "Neuquen",
         "localidad": [
             "Aguada San Roque",
             "Alumine",
@@ -1255,7 +1255,7 @@
     },
     {
         "iso_31662": "AR-R",
-        "provincia": "Río Negro",
+        "provincia": "Rio Negro",
         "capital": "Viedma",
         "localidad": [
             "Aguada Cecilio",
@@ -1702,8 +1702,8 @@
     },
     {
         "iso_31662": "AR-T",
-        "provincia": "Tucumán",
-        "capital": "San Miguel de Tucumán",
+        "provincia": "Tucuman",
+        "capital": "San Miguel de Tucuman",
         "localidad": [
             "Acheral",
             "Agua Dulce",
@@ -1872,7 +1872,7 @@
     },
     {
         "iso_31662": "AR-V",
-        "provincia": "Tierra del Fuego, Antártida e Islas del Atlántico Sur",
+        "provincia": "Tierra del Fuego, Antartida e Islas del Atlantico Sur",
         "capital": "Ushuaia",
         "localidad": [
             "Rio Grande",
@@ -1955,8 +1955,8 @@
     },
     {
         "iso_31662": "AR-X",
-        "provincia": "Córdoba",
-        "capital": "Córdoba",
+        "provincia": "Cordoba",
+        "capital": "Cordoba",
         "localidad": [
             "Achiras",
             "Adelia Maria",

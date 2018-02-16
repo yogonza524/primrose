@@ -28,6 +28,21 @@ public class PageController {
         return "register";
     }
     
+    @RequestMapping("/access")
+    public String access(Model model) {
+        return "access";
+    }
+    
+    @RequestMapping("/recover_pass")
+    public String recoverPass(Model model) {
+        return "recover_pass";
+    }
+    
+    @RequestMapping("/recover_email")
+    public String recoverEmail(Model model) {
+        return "recover_email";
+    }
+    
     @RequestMapping("/publish")
     public String publish(Model model) {
         return "publish";
@@ -35,8 +50,6 @@ public class PageController {
     
     @RequestMapping("/publication/{id}")
     public String publication(@PathVariable("id") String id, Model model) {
-        model.addAttribute("usuario", "a registrar");
-        
         return "register";
     }
 }
