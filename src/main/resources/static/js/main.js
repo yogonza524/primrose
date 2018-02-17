@@ -8,12 +8,35 @@ $("#itemsTypeRightHome").sticky({
     responsiveWidth: true
 });
 
-//Firebase access
-firebase.auth().signInWithEmailAndPassword("yogonza524@gmail.com", "12345").catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
+// register
+Vue.component('publication', {
+  template: `
+    <div style="margin-bottom:10px" class="ui form">
+        <div class="ui menu">
+            <label class="" for="upload-image">
+                <a class="item">
+                    <i class="image icon"></i>
+                    <input style="display:none; position:absolute; left:9999;" type="file" id="upload-image" class="upload-image-hidden" />
+                </a>
+            </label>
+            <a class="item">
+               Rubros
+            </a>
+            <div class="right menu">
+              <a class="item">Publicar</a>
+            </div>
+        </div>
+        <div class="ui secondary segment">
+          <div class="field">
+            <label>Quiero publicar...</label>
+            <textarea placeholder="Articulos, búsqueda laboral, persona extraviada, terreno, alquiler..."></textarea>
+          </div>
+        </div>
+    </div>
+    `
+})
 
-  alert(errorMessage);
-  // ...
-});
+// create a root instance
+new Vue({
+  el: '#publication-master'
+})

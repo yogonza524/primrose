@@ -42,6 +42,9 @@ and open the template in the editor.
                 <div class="four wide column"></div>
                 <div class="eight wide column">
                     <div id="entries">
+                        <div id="publication-master">
+                            <publication></publication>
+                        </div>
                         <div class="entry" v-for="entry in entries">
                             <div class="ui top attached menu" v-if="hasTitle(entry)">
                                 <a class="item">
